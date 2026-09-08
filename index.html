@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olhar Que Protege</title>
+
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="assets/icons/192x192.png" />
+  <meta name="theme-color" content="#898AC4" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #c0c9ee !important;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- HEADER --- */
+    header {
+      min-height: 120px;
+      margin-bottom: 20px;
+    }
+
+    .cabecalho {
+      display: flex;
+      position: relative;
+      width: 100%;
+      z-index: 100;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff3e4;
+      border-radius: 12px;
+      padding: 15px 30px;
+      margin-top: 20px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .cabecalho nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .cabecalho nav a {
+      text-decoration: none;
+      color: #000 !important;
+      font-weight: 700 !important;
+      font-size: 18px !important;
+      transition: color 0.3s ease;
+    }
+
+    .cabecalho nav a:hover {
+      color: rgb(91, 133, 189) !important;
+    }
+
+    .cabecalho nav a.active {
+      color: #898AC4 !important;
+    }
+
+    /* --- SEÇÃO HOME --- */
+    .cabecalho2 {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    #retangulo {
+      max-width: 100%;
+    }
+
+    /* --- SLIDESHOW --- */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+      width: 100%;
+    }
+
+    .mySlides.slide-ativo {
+      display: block;
+    }
+
+    .img3 {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border: #fff solid 6px;
+      border-radius: 20px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      color: #898AC4;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.6s ease;
+      border-radius: 50%;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .dots-container {
+      text-align: center;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.0s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .abaixo {
+      text-align: center;
+      font-size: 18px;
+      color: #4a4b7c;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .quadrado {
+      margin: 40px auto;
+      width: 90%;
+      max-width: 1200px;
+      min-height: 200px;
+      background: #A2AADB;
+      border-radius: 20px;
+      box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .imagem-quadrado {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .final {
+      width: 90%;
+      max-width: 1200px;
+      background: #898AC4;
+      border-radius: 25px;
+      margin: 50px auto;
+      padding: 40px;
+      box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .meninas {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      border: #fff solid 4px;
+      border-radius: 30px;
+      box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .caixa {
+      text-align: left;
+    }
+
+    .textinFinal {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .cabecalho nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .final {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .caixa {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="cabecalho">
+        <img src="assets/img/olhar_que_protege_transparente.svg" width="180" height="60" alt="Logo Olhar Que Protege" />
+        <nav>
+          <a href="index.html" class="active">Home</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#videos">Vídeos</a>
+          <a href="#blog">Blog</a>
+          <a href="#login">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <div class="cabecalho2">
+        <img src="assets/img/image 5.png" width="50" height="50" alt="Ícone" />
+        <img src="assets/img/MONITORAR = CUIDAR..png" width="350" height="40" alt="Monitorar é Cuidar" />
+        <br /><br />
+        <img src="assets/img/Rectangle 7.png" id="retangulo" alt="Detalhe" />
+      </div>
+    </section>
+
+    <section>
+      <div class="slideshow-container">
+        <div class="mySlides fade slide-ativo">
+          <img src="assets/img/banner1.png" class="img3" alt="Banner 1" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="assets/img/banner2.png" class="img3" alt="Banner 2" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="assets/img/banner3.png" class="img3" alt="Banner 3" />
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <br />
+
+      <div class="dots-container">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </section>
+
+    <div class="abaixo">
+      <p>
+        Muitas meninas estão expostas a riscos na internet. É de extrema
+        importância que os responsáveis estejam atentos ao comportamento online,
+        orientando e oferecendo diálogo aberto para garantir a segurança digital
+        delas.
+      </p>
+    </div>
+
+    <section>
+      <div class="quadrado">
+        <img src="assets/img/banner1.png" class="imagem-quadrado" alt="Imagem central" />
+      </div>
+    </section>
+
+    <section>
+      <div class="final">
+        <img src="assets/img/meninas-assistindo-laptop-adolescentes-modernos-em-casa-surpresa-e-emocoes 1.png"
+          class="meninas" alt="Meninas assistindo laptop" />
+        <div class="caixa">
+          <p class="textinFinal">CUIDAR E AMAR, PODE</p>
+          <p class="textinFinal">SALVAR E POUPAR.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+
+      if (slides.length === 0) return;
+
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("slide-ativo");
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].className += " active";
+      }
+    }
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js').catch(function (err) {
+          console.log('Service Worker não registrado:', err);
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>

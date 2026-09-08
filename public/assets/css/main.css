@@ -1,0 +1,98 @@
+/* --- REGRA GLOBAL PARA IMAGENS RESPONSIVAS --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ajustes específicos do cabeçalho */
+.logo-top {
+    max-width: 200px;
+    height: auto;
+}
+
+.img-header-small {
+    max-width: 60px;
+    height: auto;
+}
+
+.img-header-title {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+.img3 {
+    width: 100%;
+    height: auto;
+    border: #fff solid 6px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- ADAPTAÇÃO PARA DISPOSITIVOS MÓVEIS (PWA) --- */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+    }
+
+    .cabecalho {
+        position: relative;
+        left: 0;
+        transform: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 10px;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .cabecalho nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .cabecalho nav a {
+        font-size: 16px !important;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .final {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .caixa {
+        text-align: center;
+    }
+
+    .textinFinal {
+        font-size: 22px;
+    }
+
+    /* Limita qualquer imagem ao tamanho da tela */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Limita a altura do banner para não ocupar a tela toda */
+    .slideshow-container {
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+
+    .slideshow-container img {
+        max-height: 450px;
+        object-fit: cover;
+        width: 100%;
+    }
+}
